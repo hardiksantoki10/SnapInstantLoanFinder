@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SnapInstantLoanFinder</string>
+
+
+    <string name="dm_sans_bold">font/dm_sans_bold.ttf</string>
+    <string name="dm_sans_bold_book">font/dm_sans_bold.ttf</string>
+    <string name="dm_sans_36pt_500">font/dm_sans_three_six_pt_medium.ttf</string>
+    <string name="dm_sans_36pt_700">font/dm_sans_three_six_pt_bold.ttf</string>
+    <string name="dm_sans_36pt_600">font/dm_sans_three_six_semi_bold.ttf</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account">Don’t have an account ?</string>
+    <string name="signup"> Signup</string>
+    <string name="add_your_email_address">Add your email address</string>
+    <string name="my_email_is">My email is</string>
+    <string name="my_password_is">My password is</string>
+    <string name="pass">**********</string>
+    <string name="finding_instant_n_loans_made_easy">Finding instant\n loans made easy.</string>
+</resources>
