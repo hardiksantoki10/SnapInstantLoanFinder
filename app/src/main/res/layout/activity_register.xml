@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.RegisterActivity">
+
+    <LinearLayout
+        android:id="@+id/main_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/llTitleBack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="@dimen/_16sdp"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/img_back"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:padding="@dimen/_10sdp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.snap.instant.loan.finder.font_view.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:letterSpacing="0.004"
+                    android:text="Create new account"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20sdp"
+                    android:textStyle="normal"
+                    app:app_font="@string/dm_sans_36pt_700" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button_email"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_15sdp">
+
+                        <com.snap.instant.loan.finder.font_view.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:letterSpacing="0.004"
+                            android:text="@string/first_name"
+                            android:textColor="@color/colorLightBlack"
+                            android:textSize="@dimen/_10sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                        <com.snap.instant.loan.finder.font_view.FontEditText
+                            android:id="@+id/edtFirstName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/first_name"
+                            android:inputType="text"
+                            android:letterSpacing="0.001"
+                            android:textColor="@color/colorBlack"
+                            android:textColorHint="@color/colorBlack"
+                            android:textSize="@dimen/_12sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:id="@+id/llEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/llPassword"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button_email"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_15sdp">
+
+                        <com.snap.instant.loan.finder.font_view.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:letterSpacing="0.004"
+                            android:text="@string/last_name"
+                            android:textColor="@color/colorLightBlack"
+                            android:textSize="@dimen/_10sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                        <com.snap.instant.loan.finder.font_view.FontEditText
+                            android:id="@+id/etLastName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/last_name"
+                            android:inputType="text"
+                            android:letterSpacing="0.001"
+                            android:textColor="@color/colorBlack"
+                            android:textColorHint="@color/colorBlack"
+                            android:textSize="@dimen/_12sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button_email"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_15sdp">
+
+                        <com.snap.instant.loan.finder.font_view.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:letterSpacing="0.004"
+                            android:text="@string/email_address"
+                            android:textColor="@color/colorLightBlack"
+                            android:textSize="@dimen/_10sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                        <com.snap.instant.loan.finder.font_view.FontEditText
+                            android:id="@+id/edtEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/your_email_address"
+                            android:inputType="text"
+                            android:letterSpacing="0.001"
+                            android:textColor="@color/colorBlack"
+                            android:textColorHint="@color/colorBlack"
+                            android:textSize="@dimen/_12sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button_email"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_15sdp">
+
+                        <com.snap.instant.loan.finder.font_view.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:letterSpacing="0.004"
+                            android:text="@string/mobile_number"
+                            android:textColor="@color/colorLightBlack"
+                            android:textSize="@dimen/_10sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                        <com.snap.instant.loan.finder.font_view.FontEditText
+                            android:id="@+id/edtNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/numberr"
+                            android:inputType="text"
+                            android:letterSpacing="0.001"
+                            android:textColor="@color/colorBlack"
+                            android:textColorHint="@color/colorBlack"
+                            android:textSize="@dimen/_12sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button_email"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_15sdp">
+
+                        <com.snap.instant.loan.finder.font_view.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:letterSpacing="0.004"
+                            android:text="@string/date_of_birth"
+                            android:textColor="@color/colorLightBlack"
+                            android:textSize="@dimen/_10sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                        <com.snap.instant.loan.finder.font_view.FontEditText
+                            android:id="@+id/edtDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@android:color/transparent"
+                            android:hint="DD - MM - YYYY"
+                            android:inputType="text"
+                            android:letterSpacing="0.001"
+                            android:textColor="@color/colorBlack"
+                            android:textColorHint="@color/colorBlack"
+                            android:textSize="@dimen/_12sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_button_email"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_15sdp">
+
+                        <com.snap.instant.loan.finder.font_view.FontTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:letterSpacing="0.004"
+                            android:text="@string/new_password"
+                            android:textColor="@color/colorLightBlack"
+                            android:textSize="@dimen/_10sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                        <com.snap.instant.loan.finder.font_view.FontEditText
+                            android:id="@+id/edtNewPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/pass"
+                            android:inputType="text"
+                            android:letterSpacing="0.001"
+                            android:textColor="@color/colorBlack"
+                            android:textColorHint="@color/colorBlack"
+                            android:textSize="@dimen/_12sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <RelativeLayout
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/llPassword"
+                    android:padding="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_button_email">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.snap.instant.loan.finder.font_view.FontTextView
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.004"
+                            android:text="@string/confirm_password"
+                            android:textColor="@color/colorLightBlack"
+                            android:textSize="@dimen/_10sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                        <com.snap.instant.loan.finder.font_view.FontEditText
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:id="@+id/etConfirmPassword"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/pass"
+                            android:inputType="text"
+                            android:letterSpacing="0.001"
+                            android:textColor="@color/colorBlack"
+                            android:textColorHint="@color/colorBlack"
+                            android:textSize="@dimen/_12sdp"
+                            app:app_font="@string/dm_sans_36pt_500" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/img_password_view"/>
+
+                </RelativeLayout>
+
+                <com.snap.instant.loan.finder.font_view.FontButton
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:background="@drawable/rounded_button"
+                    android:letterSpacing="0.0125"
+                    android:text="@string/create_account"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    app:app_font="@string/dm_sans_36pt_600" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>
