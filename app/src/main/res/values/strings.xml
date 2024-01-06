@@ -16,4 +16,10 @@
     <string name="my_password_is">My password is</string>
     <string name="pass">**********</string>
     <string name="finding_instant_n_loans_made_easy">Finding instant\n loans made easy.</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
