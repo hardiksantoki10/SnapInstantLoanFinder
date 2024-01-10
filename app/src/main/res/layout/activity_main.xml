@@ -15,7 +15,7 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/llBottomBar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="66dp"
         android:layout_gravity="bottom"
         android:background="@color/colorPrimary"
         android:gravity="center"

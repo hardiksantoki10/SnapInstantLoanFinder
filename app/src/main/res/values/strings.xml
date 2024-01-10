@@ -26,4 +26,5 @@
     <string name="new_password">New password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="create_account">Create account</string>
+    <string name="available_loan_providers">Available loan providers</string>
 </resources>
