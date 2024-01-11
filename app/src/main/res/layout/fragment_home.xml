@@ -36,7 +36,9 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
@@ -53,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        tools:listitem="@layout/home_list_provider_item"
         android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/home_list_provider_item" />
 </LinearLayout>
