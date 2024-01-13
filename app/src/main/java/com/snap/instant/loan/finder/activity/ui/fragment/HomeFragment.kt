@@ -14,7 +14,7 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.snap.instant.loan.finder.R
-import com.snap.instant.loan.finder.activity.adapter.SliderAdapter
+import com.snap.instant.loan.finder.adapter.SliderAdapter
 import com.snap.instant.loan.finder.databinding.FragmentHomeBinding
 import com.snap.instant.loan.finder.databinding.HomeListProviderItemBinding
 import kotlin.math.abs

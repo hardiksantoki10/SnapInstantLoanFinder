@@ -52,7 +52,11 @@
 
     </style>
 
-
+    <style name="progressTransDialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 
     <style name="roundedCornersImage_50" parent="">
         <item name="cornerFamily">rounded</item>

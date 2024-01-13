@@ -1,4 +1,4 @@
-package com.snap.instant.loan.finder.activity.adapter
+package com.snap.instant.loan.finder.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.snap.instant.loan.finder.R
-import com.snap.instant.loan.finder.activity.adapter.SliderAdapter.SliderViewHolder
+import com.snap.instant.loan.finder.adapter.SliderAdapter.SliderViewHolder
 
 class SliderAdapter internal constructor( val sliderItems: ArrayList<Int>, val viewPager2: ViewPager2) :
     RecyclerView.Adapter<SliderViewHolder>() {

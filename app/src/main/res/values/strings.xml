@@ -27,4 +27,14 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="create_account">Create account</string>
     <string name="available_loan_providers">Available loan providers</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="notification_settings">Notification Settings</string>
+    <string name="share_app">Share app</string>
+    <string name="rate_this_app">Rate this app</string>
+    <string name="help_center">Help center</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="terms_and_conditions">Terms and conditions</string>
+    <string name="about_app">About app</string>
+    <string name="logout">Logout</string>
+    <string name="remove_account">Remove account</string>
 </resources>

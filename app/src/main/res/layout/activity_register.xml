@@ -358,7 +358,7 @@
                 </RelativeLayout>
 
                 <com.snap.instant.loan.finder.font_view.FontButton
-                    android:id="@+id/btnLogin"
+                    android:id="@+id/btnRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_15sdp"

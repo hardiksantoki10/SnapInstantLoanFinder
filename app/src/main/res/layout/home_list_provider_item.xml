@@ -35,7 +35,7 @@
             android:fontFamily="@font/dm_sans_36pt_700_bold"
             android:text="ApexAdvance Group"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="13sp"
             app:layout_constraintBottom_toTopOf="@id/ivPercentage"
             app:layout_constraintStart_toEndOf="@id/ivBankImage"
             app:layout_constraintTop_toTopOf="parent"
@@ -58,7 +58,7 @@
             android:fontFamily="@font/dm_sans_36_500_medium"
             android:text="Starting from 12.0%"
             android:textColor="#2CD178"
-            android:textSize="13sp"
+            android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="@id/ivPercentage"
             app:layout_constraintStart_toEndOf="@id/ivPercentage"
             app:layout_constraintTop_toTopOf="@id/ivPercentage" />

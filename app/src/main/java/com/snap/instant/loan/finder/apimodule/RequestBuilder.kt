@@ -116,5 +116,6 @@ object RequestBuilder {
 
     object ApiEndPoints {
         var LOGIN = "login"
+        var REGISTER = "register"
     }
 }

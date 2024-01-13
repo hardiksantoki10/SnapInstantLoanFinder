@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.ui.fragment.HomeFragment">
+
+  <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <androidx.appcompat.widget.LinearLayoutCompat
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+          <com.google.android.material.card.MaterialCardView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="@dimen/_10sdp"
+              app:cardBackgroundColor="@color/colorLightWhite"
+              app:cardCornerRadius="20dp"
+              app:cardElevation="0dp"
+              app:cardPreventCornerOverlap="false"
+              app:cardUseCompatPadding="false">
+
+              <RelativeLayout
+                  android:padding="@dimen/_10sdp"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+                  <com.google.android.material.imageview.ShapeableImageView
+                      android:id="@+id/ivUserImage"
+                      android:layout_width="@dimen/_60sdp"
+                      android:layout_height="@dimen/_60sdp"
+                      android:adjustViewBounds="true"
+                      android:src="@drawable/ic_profile_placeholder"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="parent"
+                      app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
+
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:orientation="vertical"
+                      android:layout_toRightOf="@+id/ivUserImage"
+                      android:layout_centerVertical="true"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:id="@+id/txtName"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginStart="16dp"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="Hi, Markos"
+                          android:textColor="@color/black"
+                          android:textSize="20sp" />
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:layout_below="@+id/txtName"
+                          android:id="@+id/txtNumber"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginStart="16dp"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="+911234567890"
+                          android:textColor="@color/black"
+                          android:textSize="15sp" />
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+              </RelativeLayout>
+          </com.google.android.material.card.MaterialCardView>
+
+          <com.google.android.material.card.MaterialCardView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="@dimen/_10sdp"
+              app:cardBackgroundColor="@color/colorLightWhite"
+              app:cardCornerRadius="20dp"
+              app:cardElevation="0dp"
+              app:cardPreventCornerOverlap="false"
+              app:cardUseCompatPadding="false">
+
+              <androidx.appcompat.widget.LinearLayoutCompat
+                  android:padding="@dimen/_15sdp"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <com.google.android.material.imageview.ShapeableImageView
+                          android:id="@+id/ivEditProfile"
+                          android:layout_width="@dimen/_22sdp"
+                          android:layout_height="@dimen/_22sdp"
+                          android:adjustViewBounds="true"
+                          android:src="@drawable/ic_edit_profile"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:layout_marginStart="16dp"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="@string/edit_profile"
+                          android:textColor="@color/colorBlack"
+                          android:textSize="14sp" />
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_marginTop="@dimen/_15sdp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <com.google.android.material.imageview.ShapeableImageView
+                          android:layout_width="@dimen/_22sdp"
+                          android:layout_height="@dimen/_22sdp"
+                          android:adjustViewBounds="true"
+                          android:src="@drawable/ic_notification"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:layout_gravity="center"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginStart="16dp"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="@string/notification_settings"
+                          android:textColor="@color/colorBlack"
+                          android:textSize="14sp" />
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_marginTop="@dimen/_15sdp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <com.google.android.material.imageview.ShapeableImageView
+                          android:layout_width="@dimen/_22sdp"
+                          android:layout_height="@dimen/_22sdp"
+                          android:adjustViewBounds="true"
+                          android:src="@drawable/ic_share"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginStart="16dp"
+                          android:layout_gravity="center"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="@string/share_app"
+                          android:textColor="@color/colorBlack"
+                          android:textSize="14sp" />
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_marginTop="@dimen/_15sdp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <com.google.android.material.imageview.ShapeableImageView
+                          android:layout_width="@dimen/_22sdp"
+                          android:layout_height="@dimen/_22sdp"
+                          android:adjustViewBounds="true"
+                          android:src="@drawable/ic_rate"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:layout_marginStart="16dp"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="@string/rate_this_app"
+                          android:textColor="@color/colorBlack"
+                          android:textSize="14sp" />
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+              </androidx.appcompat.widget.LinearLayoutCompat>
+          </com.google.android.material.card.MaterialCardView>
+
+          <com.google.android.material.card.MaterialCardView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="@dimen/_10sdp"
+              app:cardBackgroundColor="@color/colorLightWhite"
+              app:cardCornerRadius="20dp"
+              app:cardElevation="0dp"
+              app:cardPreventCornerOverlap="false"
+              app:cardUseCompatPadding="false">
+
+              <androidx.appcompat.widget.LinearLayoutCompat
+                  android:padding="@dimen/_15sdp"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <com.google.android.material.imageview.ShapeableImageView
+                          android:layout_width="@dimen/_22sdp"
+                          android:layout_height="@dimen/_22sdp"
+                          android:adjustViewBounds="true"
+                          android:src="@drawable/ic_help"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:layout_marginStart="16dp"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="@string/help_center"
+                          android:textColor="@color/colorBlack"
+                          android:textSize="14sp" />
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_marginTop="@dimen/_15sdp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <com.google.android.material.imageview.ShapeableImageView
+                          android:layout_width="@dimen/_22sdp"
+                          android:layout_height="@dimen/_22sdp"
+                          android:adjustViewBounds="true"
+                          android:src="@drawable/ic_privacy"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:layout_gravity="center"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginStart="16dp"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="@string/privacy_policy"
+                          android:textColor="@color/colorBlack"
+                          android:textSize="14sp" />
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_marginTop="@dimen/_15sdp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <com.google.android.material.imageview.ShapeableImageView
+                          android:layout_width="@dimen/_22sdp"
+                          android:layout_height="@dimen/_22sdp"
+                          android:adjustViewBounds="true"
+                          android:src="@drawable/ic_terms"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginStart="16dp"
+                          android:layout_gravity="center"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="@string/terms_and_conditions"
+                          android:textColor="@color/colorBlack"
+                          android:textSize="14sp" />
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_marginTop="@dimen/_15sdp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <com.google.android.material.imageview.ShapeableImageView
+                          android:layout_width="@dimen/_22sdp"
+                          android:layout_height="@dimen/_22sdp"
+                          android:adjustViewBounds="true"
+                          android:src="@drawable/ic_about"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:layout_marginStart="16dp"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="@string/about_app"
+                          android:textColor="@color/colorBlack"
+                          android:textSize="14sp" />
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+              </androidx.appcompat.widget.LinearLayoutCompat>
+          </com.google.android.material.card.MaterialCardView>
+
+          <com.google.android.material.card.MaterialCardView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="@dimen/_10sdp"
+              app:cardBackgroundColor="@color/colorLightWhite"
+              app:cardCornerRadius="20dp"
+              app:cardElevation="0dp"
+              app:cardPreventCornerOverlap="false"
+              app:cardUseCompatPadding="false">
+
+              <androidx.appcompat.widget.LinearLayoutCompat
+                  android:padding="@dimen/_15sdp"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <com.google.android.material.imageview.ShapeableImageView
+                          android:layout_width="@dimen/_22sdp"
+                          android:layout_height="@dimen/_22sdp"
+                          android:adjustViewBounds="true"
+                          android:src="@drawable/ic_logout"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:layout_marginStart="16dp"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="@string/logout"
+                          android:textColor="@color/colorBlack"
+                          android:textSize="14sp" />
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+
+                  <androidx.appcompat.widget.LinearLayoutCompat
+                      android:layout_marginTop="@dimen/_15sdp"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content">
+
+                      <com.google.android.material.imageview.ShapeableImageView
+                          android:layout_width="@dimen/_22sdp"
+                          android:layout_height="@dimen/_22sdp"
+                          android:adjustViewBounds="true"
+                          android:src="@drawable/ic_delete"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
+
+                      <com.google.android.material.textview.MaterialTextView
+                          android:layout_gravity="center"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginStart="16dp"
+                          android:fontFamily="@font/dm_sans_36_500_medium"
+                          android:text="@string/remove_account"
+                          android:textColor="@color/colorBlack"
+                          android:textSize="14sp" />
+
+                  </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+              </androidx.appcompat.widget.LinearLayoutCompat>
+          </com.google.android.material.card.MaterialCardView>
+
+      </androidx.appcompat.widget.LinearLayoutCompat>
+
+  </androidx.core.widget.NestedScrollView>
+</LinearLayout>
