@@ -2,7 +2,7 @@ package com.snap.instant.loan.finder.apimodule
 
 
 import com.orhanobut.hawk.Hawk
-import com.snap.instant.loan.finder.activity.base.SAVED_TOKEN
+import com.snap.instant.loan.finder.activity.base.UserLoginDetail
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -13,7 +13,7 @@ object RequestBuilder {
 
     //"Q0ZzNHFZMjl0TFBIZGluRjFiM1JsY3k1amNtVmhkRzl5TG0xaGEyVnlMbkYxYjNScFpua3ZWEIG3RTNPMko5"
     private fun getSavedToken(): String {
-        return Hawk.get(SAVED_TOKEN, "")
+        return Hawk.get(UserLoginDetail.REMEMBER_TOKEN, "")
     }
 
     fun getCommonParametersHashMap(): HashMap<String, String> {

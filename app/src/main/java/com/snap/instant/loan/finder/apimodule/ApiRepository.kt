@@ -17,6 +17,9 @@ open class ApiRepository @Inject constructor(private val api: Api) {
             }
         )
     }
+    open suspend fun makeLogin(): Result<ResponseBody> {
+        return api.getHomeData()
+    }
 
     open suspend fun makeRegister(firstName: String,
                                   lastName: String,

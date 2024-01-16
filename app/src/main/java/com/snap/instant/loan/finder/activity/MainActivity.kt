@@ -13,6 +13,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout
 import com.snap.instant.loan.finder.R
+import com.snap.instant.loan.finder.activity.base.BaseActivity
 import com.snap.instant.loan.finder.activity.ui.fragment.CalcFragment
 import com.snap.instant.loan.finder.activity.ui.fragment.CategoryFragment
 import com.snap.instant.loan.finder.activity.ui.fragment.HomeFragment
@@ -23,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     @Inject
     lateinit var apiRepository: ApiRepository

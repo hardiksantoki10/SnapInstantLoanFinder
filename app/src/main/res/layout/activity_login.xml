@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activity.LoginActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -17,27 +17,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/img_login_bg"/>
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_login_bg" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_centerInParent="true"
                 android:layout_width="@dimen/_170sdp"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:adjustViewBounds="true"
-                android:src="@drawable/img_login_app"/>
+                android:src="@drawable/img_login_app" />
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:paddingBottom="@dimen/_15sdp"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|bottom"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_15sdp">
 
             <com.snap.instant.loan.finder.font_view.FontTextView
-                android:layout_centerHorizontal="true"
-                android:layout_above="@+id/llEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/llEmail"
+                android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:letterSpacing="0.004"
                 android:text="@string/finding_instant_n_loans_made_easy"
@@ -47,21 +51,21 @@
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/llEmail"
-                android:layout_above="@+id/llPassword"
-                android:padding="@dimen/_15sdp"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/llPassword"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:background="@drawable/rounded_button_email">
+                android:background="@drawable/rounded_button_email"
+                android:orientation="vertical"
+                android:padding="@dimen/_15sdp">
 
                 <com.snap.instant.loan.finder.font_view.FontTextView
-                    android:layout_alignParentBottom="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
                     android:letterSpacing="0.004"
                     android:text="@string/my_email_is"
                     android:textColor="@color/colorLightBlack"
@@ -69,13 +73,13 @@
                     app:app_font="@string/dm_sans_36pt_500" />
 
                 <com.snap.instant.loan.finder.font_view.FontEditText
-                    android:layout_marginTop="@dimen/_5sdp"
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:background="@android:color/transparent"
                     android:hint="@string/add_your_email_address"
-                    android:inputType="text"
+                    android:inputType="textEmailAddress"
                     android:letterSpacing="0.001"
                     android:textColor="@color/colorBlack"
                     android:textColorHint="@color/colorBlack"
@@ -85,25 +89,25 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <RelativeLayout
-                android:layout_above="@+id/btnLogin"
                 android:id="@+id/llPassword"
-                android:padding="@dimen/_15sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/btnLogin"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_15sdp"
-                android:background="@drawable/rounded_button_email">
+                android:background="@drawable/rounded_button_email"
+                android:padding="@dimen/_15sdp">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <com.snap.instant.loan.finder.font_view.FontTextView
-                        android:layout_alignParentBottom="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
                         android:letterSpacing="0.004"
                         android:text="@string/my_password_is"
                         android:textColor="@color/colorLightBlack"
@@ -111,13 +115,13 @@
                         app:app_font="@string/dm_sans_36pt_500" />
 
                     <com.snap.instant.loan.finder.font_view.FontEditText
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:id="@+id/etPassword"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:background="@android:color/transparent"
                         android:hint="@string/pass"
-                        android:inputType="text"
+                        android:inputType="textWebPassword"
                         android:letterSpacing="0.001"
                         android:textColor="@color/colorBlack"
                         android:textColorHint="@color/colorBlack"
@@ -127,11 +131,11 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/img_password_view"/>
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/img_password_view" />
 
             </RelativeLayout>
 
@@ -154,16 +158,16 @@
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/llAccount"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:gravity="center"
-                android:layout_above="@+id/txtForgotPassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/txtForgotPassword"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center">
 
                 <com.snap.instant.loan.finder.font_view.FontTextView
-                    android:layout_alignParentBottom="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
                     android:gravity="center"
                     android:letterSpacing="0.004"
                     android:text="@string/don_t_have_an_account"
@@ -173,9 +177,9 @@
 
                 <com.snap.instant.loan.finder.font_view.FontTextView
                     android:id="@+id/txtSignup"
-                    android:layout_alignParentBottom="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
                     android:gravity="center"
                     android:letterSpacing="0.004"
                     android:text="@string/signup"
@@ -187,17 +191,16 @@
 
             <com.snap.instant.loan.finder.font_view.FontTextView
                 android:id="@+id/txtForgotPassword"
-                android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:gravity="center"
                 android:letterSpacing="0.004"
                 android:text="@string/forgot_password"
                 android:textColor="@color/colorLightBlack"
                 android:textSize="@dimen/_12sdp"
                 app:app_font="@string/dm_sans_36pt_500" />
-        </RelativeLayout>
-
+        </LinearLayout>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

@@ -14,8 +14,9 @@ interface Api {
         @Path("path") path: String, @FieldMap hashMap: HashMap<String, String>
     ): Result<ResponseBody>
 
-    @GET("json")
-    suspend fun getIpJsonData(): Result<ResponseBody>
+    @GET("home")
+    suspend fun getHomeData(): Result<ResponseBody>
+
 
     @Multipart
     @POST("api/applications-user-login")
