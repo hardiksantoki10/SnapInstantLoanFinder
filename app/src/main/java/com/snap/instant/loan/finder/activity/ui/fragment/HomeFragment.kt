@@ -29,6 +29,7 @@ import com.snap.instant.loan.finder.databinding.HomeListProviderItemBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.Collections.emptyList
 import javax.inject.Inject
 import kotlin.math.abs
 class HomeFragment : BaseFragment() {
@@ -44,8 +45,7 @@ class HomeFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        binding =
-            FragmentHomeBinding.bind(inflater.inflate(R.layout.fragment_home, container, false))
+        binding = FragmentHomeBinding.bind(inflater.inflate(R.layout.fragment_home, container, false))
         return binding.root
     }
 
@@ -147,6 +147,7 @@ class HomeFragment : BaseFragment() {
             holder.binding.txtStartingFrom.text = imageFile?.subtitle.orEmpty()
 
             holder.binding.ivArrow.setOnClickListener {
+
 
             }
         }

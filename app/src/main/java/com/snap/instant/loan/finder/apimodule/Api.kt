@@ -5,6 +5,7 @@ import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
+import java.util.HashMap
 
 interface Api {
 
@@ -16,6 +17,9 @@ interface Api {
 
     @GET("home")
     suspend fun getHomeData(): Result<ResponseBody>
+
+    @GET("category")
+    suspend fun getCategoryData(): Result<ResponseBody>
 
 
     @Multipart
