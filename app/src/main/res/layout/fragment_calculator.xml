@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activity.ui.fragment.HomeFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtMonthlyAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/dm_sans_36pt_300_light"
+            android:gravity="end"
+            android:text="₹ 9,666"
+            android:textColor="@color/color_green"
+            android:textSize="30sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/dm_sans_36_500_medium"
+            android:gravity="end"
+            android:text="Pay Monthly"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_marginTop="@dimen/_30sdp"
+            android:id="@+id/txtTotalInterest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/dm_sans_36pt_300_light"
+            android:gravity="end"
+            android:text="₹ 9,666"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/dm_sans_36_500_medium"
+            android:gravity="end"
+            android:text="@string/total_interest_due"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_marginTop="@dimen/_30sdp"
+            android:id="@+id/txtTotalAmountPayable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/dm_sans_36pt_300_light"
+            android:gravity="end"
+            android:text="₹ 9,666"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/dm_sans_36_500_medium"
+            android:gravity="end"
+            android:text="@string/total_amount_payable"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/llLoanAmount"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:background="#33030A33" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llLoanAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/llRate"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:background="@drawable/rounded_button_email"
+        android:orientation="vertical"
+        android:padding="@dimen/_15sdp">
+
+        <com.snap.instant.loan.finder.font_view.FontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:letterSpacing="0.004"
+            android:text="@string/loan_amount"
+            android:textColor="@color/colorLightBlack"
+            android:textSize="@dimen/_10sdp"
+            app:app_font="@string/dm_sans_36pt_500" />
+
+        <com.snap.instant.loan.finder.font_view.FontEditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@android:color/transparent"
+            android:hint="0"
+            android:inputType="number"
+            android:letterSpacing="0.001"
+            android:textColor="@color/colorBlack"
+            android:textColorHint="@color/colorBlack"
+            android:textSize="@dimen/_12sdp"
+            app:app_font="@string/dm_sans_36pt_500" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnCalculate"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_15sdp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button_email"
+            android:orientation="vertical"
+            android:padding="@dimen/_15sdp">
+
+            <com.snap.instant.loan.finder.font_view.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:letterSpacing="0.004"
+                android:text="@string/tenure"
+                android:textColor="@color/colorLightBlack"
+                android:textSize="@dimen/_10sdp"
+                app:app_font="@string/dm_sans_36pt_500" />
+
+            <com.snap.instant.loan.finder.font_view.FontEditText
+                android:id="@+id/edtFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@android:color/transparent"
+                android:hint="@string/first_name"
+                android:inputType="text"
+                android:letterSpacing="0.001"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorBlack"
+                android:textSize="@dimen/_12sdp"
+                app:app_font="@string/dm_sans_36pt_500" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/llEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/llPassword"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button_email"
+            android:orientation="vertical"
+            android:padding="@dimen/_15sdp">
+
+            <com.snap.instant.loan.finder.font_view.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:letterSpacing="0.004"
+                android:text="@string/interest_rate"
+                android:textColor="@color/colorLightBlack"
+                android:textSize="@dimen/_10sdp"
+                app:app_font="@string/dm_sans_36pt_500" />
+
+            <com.snap.instant.loan.finder.font_view.FontEditText
+                android:id="@+id/etLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@android:color/transparent"
+                android:hint="0"
+                android:inputType="number"
+                android:letterSpacing="0.001"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorBlack"
+                android:textSize="@dimen/_12sdp"
+                app:app_font="@string/dm_sans_36pt_500" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.snap.instant.loan.finder.font_view.FontButton
+        android:id="@+id/btnCalculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/rounded_button"
+        android:letterSpacing="0.0125"
+        android:text="@string/calculate_amount"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        app:app_font="@string/dm_sans_36pt_600" />
+</RelativeLayout>

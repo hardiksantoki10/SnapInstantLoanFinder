@@ -37,4 +37,10 @@
     <string name="about_app">About app</string>
     <string name="logout">Logout</string>
     <string name="remove_account">Remove account</string>
+    <string name="calculate_amount">Calculate Amount</string>
+    <string name="tenure">Tenure</string>
+    <string name="interest_rate">Interest rate (%)</string>
+    <string name="loan_amount">Loan Amount</string>
+    <string name="total_interest_due">Total Interest Due</string>
+    <string name="total_amount_payable">Total Amount Payable</string>
 </resources>
