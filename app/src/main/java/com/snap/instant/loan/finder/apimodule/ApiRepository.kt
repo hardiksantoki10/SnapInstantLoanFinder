@@ -9,29 +9,35 @@ import javax.inject.Singleton
 open class ApiRepository @Inject constructor(private val api: Api) {
 
     open suspend fun makeLogin(password: String, email: String): Result<ResponseBody> {
-        return api.getData(
-            RequestBuilder.ApiEndPoints.LOGIN,
+        return api.getData(RequestBuilder.ApiEndPoints.LOGIN,
             RequestBuilder.getCommonParametersHashMap().apply {
                 put("password", password)
                 put("email", email)
-            }
-        )
+            })
     }
+
     open suspend fun makeLogin(): Result<ResponseBody> {
         return api.getHomeData()
-    }open suspend fun getCategory(): Result<ResponseBody> {
+    }
+
+    open suspend fun getCategory(): Result<ResponseBody> {
         return api.getCategoryData()
     }
 
-    open suspend fun makeRegister(firstName: String,
-                                  lastName: String,
-                                  email: String,
-                                  phoneNumber: String,
-                                  dob: String,
-                                  password: String,
-                                  confirmPassword: String): Result<ResponseBody> {
-        return api.getData(
-            RequestBuilder.ApiEndPoints.REGISTER,
+    open suspend fun getProfile(): Result<ResponseBody> {
+        return api.getProfile()
+    }
+
+    open suspend fun makeRegister(
+        firstName: String,
+        lastName: String,
+        email: String,
+        phoneNumber: String,
+        dob: String,
+        password: String,
+        confirmPassword: String
+    ): Result<ResponseBody> {
+        return api.getData(RequestBuilder.ApiEndPoints.REGISTER,
             RequestBuilder.getCommonParametersHashMap().apply {
                 put("first_name", firstName)
                 put("last_name", lastName)
@@ -42,7 +48,6 @@ open class ApiRepository @Inject constructor(private val api: Api) {
                 put("dob", dob)
                 put("device_token", "123456")
                 put("app_type", "0")
-            }
-        )
+            })
     }
 }

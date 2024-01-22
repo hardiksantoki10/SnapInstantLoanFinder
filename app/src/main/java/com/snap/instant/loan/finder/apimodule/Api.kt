@@ -20,6 +20,8 @@ interface Api {
 
     @GET("category")
     suspend fun getCategoryData(): Result<ResponseBody>
+    @GET("get-profile")
+    suspend fun getProfile(): Result<ResponseBody>
 
 
     @Multipart

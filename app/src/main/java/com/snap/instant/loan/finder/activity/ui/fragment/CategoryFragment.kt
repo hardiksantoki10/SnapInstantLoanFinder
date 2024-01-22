@@ -25,9 +25,8 @@ import java.util.Collections
 
 
 class CategoryFragment : BaseFragment() {
-
     lateinit var binding: FragmentCategoryBinding
-    private var companiesList: List<HomeRes.Company?>? = Collections.emptyList()
+    private var companiesList: ArrayList<CategoryRes.Data> = arrayListOf()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,11 +38,18 @@ class CategoryFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding =
-            FragmentCategoryBinding.bind(inflater.inflate(R.layout.fragment_category, container, false))
+            FragmentCategoryBinding.bind(
+                inflater.inflate(
+                    R.layout.fragment_category,
+                    container,
+                    false
+                )
+            )
         return binding.root
         // Inflate the layout for this fragment
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initList()
@@ -66,8 +72,10 @@ class CategoryFragment : BaseFragment() {
                     val res = it.string()
                     Log.d("getHomeData", "onSuccess responce $res")
                     val homeRes = Gson().fromJson(res, CategoryRes::class.java)
-                    if (homeRes.success == true) {
-                        homeRes
+                    if (homeRes.success) {
+                        companiesList.clear()
+                        companiesList.addAll(homeRes.data)
+                        binding.rvCategoryList.adapter?.notifyDataSetChanged()
                         //setData(homeRes)
                     }
                 }

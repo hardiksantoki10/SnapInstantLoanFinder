@@ -14,7 +14,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         Handler(Looper.getMainLooper()).postDelayed({
-            if (Hawk.get(UserLoginDetail.REMEMBER_TOKEN, "").equals("")) {
+            if (Hawk.get(UserLoginDetail.REMEMBER_TOKEN, "").isNullOrBlank()) {
                 val intent = Intent(applicationContext, LoginActivity::class.java)
                 startActivity(intent)
                 finishAffinity()

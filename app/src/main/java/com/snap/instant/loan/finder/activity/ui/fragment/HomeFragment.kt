@@ -24,6 +24,7 @@ import com.snap.instant.loan.finder.adapter.SliderAdapter
 import com.snap.instant.loan.finder.apimodule.ApiRepository
 import com.snap.instant.loan.finder.apimodule.pojoModel.HomeRes
 import com.snap.instant.loan.finder.apimodule.pojoModel.LoginRes
+import com.snap.instant.loan.finder.apimodule.pojoModel.ProfileRes
 import com.snap.instant.loan.finder.databinding.FragmentHomeBinding
 import com.snap.instant.loan.finder.databinding.HomeListProviderItemBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -121,6 +122,40 @@ class HomeFragment : BaseFragment() {
         companiesList = homeRes?.companies
         homeList = homeRes?.home
         binding.rvLoanProviderList.adapter?.notifyDataSetChanged()
+        getProfileData()
+    }
+
+    private fun getProfileData() {
+        showProgress()
+        lifecycleScope.launch(Dispatchers.IO) {
+            (activity as MainActivity).apiRepository.getProfile().onSuccess {
+                lifecycleScope.launch(Dispatchers.Main) {
+                    hideProgress()
+                    val res = it.string()
+                    Log.d("getProfileData", "onSuccess responce $res")
+
+                    val homeRes = Gson().fromJson(res, ProfileRes::class.java)
+
+                    if (homeRes.success == true) {
+                        setProfileData(homeRes)
+                    }
+                }
+            }.onFailure {
+                lifecycleScope.launch(Dispatchers.Main) {
+                    hideProgress()
+                    Log.d("getProfileData", "onFailure responce ${it.message}")
+                }
+            }
+
+        }
+    }
+
+    private fun setProfileData(homeRes: ProfileRes?) {
+        homeRes?.let {
+            Log.d("setProfileData","image ${homeRes.data?.image}")
+            Glide.with(this).load(homeRes.data?.image).into(binding.ivProfileImage)
+            binding.txtName.text = homeRes.data?.firstName.plus(" ").plus(homeRes.data?.lastName)
+        }
     }
 
     private val sliderRunnable = Runnable { binding.viewPagerHorizontal.currentItem += 1 }
