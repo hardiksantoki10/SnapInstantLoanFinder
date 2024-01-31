@@ -8,14 +8,15 @@
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"
-        tools:ignore="SelectedPhotoAccess" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_IMAGES"
+        tools:ignore="SelectedPhotoAccess" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="com.google.android.apps.photos.permission.GOOGLE_PHOTOS" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
@@ -31,7 +32,9 @@
         </intent>
         <intent>
             <action android:name="android.intent.action.VIEW" />
+
             <category android:name="android.intent.category.BROWSABLE" />
+
             <data android:scheme="https" />
         </intent>
         <intent>
@@ -52,6 +55,9 @@
         android:theme="@style/AppLightTheme"
         tools:targetApi="31">
         <activity
+            android:name=".activity.CompanyProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.RegisterActivity"
             android:configChanges="locale|layoutDirection|uiMode|orientation|screenSize|screenLayout|keyboardHidden"
             android:exported="false"
@@ -67,7 +73,6 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateVisible" />
-
         <activity
             android:name=".activity.MainActivity"
             android:configChanges="locale|layoutDirection|uiMode|orientation|screenSize|screenLayout|keyboardHidden"
@@ -89,7 +94,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name="com.snap.instant.loan.finder.activity.ProfileUpdateActivity"
+            android:configChanges="locale|layoutDirection|uiMode|orientation|screenSize|screenLayout|keyboardHidden"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -101,7 +113,6 @@
                 android:resource="@xml/provider_paths"
                 tools:replace="android:resource" />
         </provider>
-
     </application>
 
 </manifest>

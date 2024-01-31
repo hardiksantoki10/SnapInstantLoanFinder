@@ -70,8 +70,6 @@ class RegisterActivity : BaseActivity() {
                     ).onSuccess {
                         lifecycleScope.launch(Dispatchers.Main) {
                             hideProgress()
-                            Log.d("makeRegister", "responce ${it.string()}")
-
                             val res = it.string()
                             Log.d("makeLogin", "responce $res")
                             val loginRes = Gson().fromJson(res, LoginRes::class.java)

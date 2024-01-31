@@ -36,11 +36,11 @@
             android:textSize="13sp" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:layout_marginTop="@dimen/_30sdp"
             android:id="@+id/txtTotalInterest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:fontFamily="@font/dm_sans_36pt_300_light"
             android:gravity="end"
             android:text="₹ 9,666"
@@ -59,11 +59,11 @@
 
 
         <com.google.android.material.textview.MaterialTextView
-            android:layout_marginTop="@dimen/_30sdp"
             android:id="@+id/txtTotalAmountPayable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_30sdp"
             android:fontFamily="@font/dm_sans_36pt_300_light"
             android:gravity="end"
             android:text="₹ 9,666"
@@ -112,7 +112,7 @@
             app:app_font="@string/dm_sans_36pt_500" />
 
         <com.snap.instant.loan.finder.font_view.FontEditText
-            android:id="@+id/edtEmail"
+            android:id="@+id/edAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
@@ -155,19 +155,38 @@
                 android:textSize="@dimen/_10sdp"
                 app:app_font="@string/dm_sans_36pt_500" />
 
-            <com.snap.instant.loan.finder.font_view.FontEditText
-                android:id="@+id/edtFirstName"
+            <LinearLayout
+                android:id="@+id/llTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:background="@android:color/transparent"
-                android:hint="@string/first_name"
-                android:inputType="text"
-                android:letterSpacing="0.001"
-                android:textColor="@color/colorBlack"
-                android:textColorHint="@color/colorBlack"
-                android:textSize="@dimen/_12sdp"
-                app:app_font="@string/dm_sans_36pt_500" />
+                android:orientation="horizontal">
+
+                <com.snap.instant.loan.finder.font_view.FontTextView
+                    android:id="@+id/edtTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="1"
+                    android:inputType="text"
+                    android:letterSpacing="0.001"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp"
+                    app:app_font="@string/dm_sans_36pt_500" />
+
+                <com.snap.instant.loan.finder.font_view.FontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint=" Year"
+                    android:inputType="text"
+                    android:letterSpacing="0.001"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp"
+                    app:app_font="@string/dm_sans_36pt_500" />
+            </LinearLayout>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -193,7 +212,7 @@
                 app:app_font="@string/dm_sans_36pt_500" />
 
             <com.snap.instant.loan.finder.font_view.FontEditText
-                android:id="@+id/etLastName"
+                android:id="@+id/etRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"

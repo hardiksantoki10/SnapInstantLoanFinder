@@ -30,7 +30,7 @@ class ApiProvider {
     fun provideRetrofitInst(): Retrofit {
         val logging = HttpLoggingInterceptor()
         if (BuildConfig.DEBUG) logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-        else logging.setLevel(HttpLoggingInterceptor.Level.NONE)
+        else logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
         val client = OkHttpClient.Builder()
 
@@ -39,18 +39,22 @@ class ApiProvider {
             .writeTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)
             .pingInterval(200, TimeUnit.SECONDS)
             .retryOnConnectionFailure(true).apply {
-                if (BuildConfig.DEBUG) this.addInterceptor(logging)
-                this.addInterceptor(Interceptor { chain ->
+                addInterceptor(logging)
+                addInterceptor(Interceptor { chain ->
                     val newRequest: Request = chain.request().newBuilder()
-                        .addHeader("Authorization", "Bearer ${Hawk.get(UserLoginDetail.REMEMBER_TOKEN,"")}")
+                        .addHeader(
+                            "Authorization",
+                            "Bearer ${Hawk.get(UserLoginDetail.REMEMBER_TOKEN, "")}"
+                        )
                         .build()
                     chain.proceed(newRequest)
                 })
             }.build()
 
-        return Retrofit.Builder().baseUrl(BASE).addConverterFactory(GsonConverterFactory.create()).addCallAdapterFactory(
-            ResultCallAdapterFactory()
-        ).client(client).build()
+        return Retrofit.Builder().baseUrl(BASE).addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(
+                ResultCallAdapterFactory()
+            ).client(client).build()
     }
 
     @Provides

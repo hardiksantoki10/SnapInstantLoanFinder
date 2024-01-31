@@ -36,6 +36,7 @@
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="@dimen/_60sdp"
                         android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_profile_placeholder"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -91,6 +92,7 @@
                     android:padding="@dimen/_15sdp">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/llProfile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -99,6 +101,7 @@
                             android:layout_width="@dimen/_22sdp"
                             android:layout_height="@dimen/_22sdp"
                             android:adjustViewBounds="true"
+                            android:scaleType="centerCrop"
                             android:src="@drawable/ic_edit_profile"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"

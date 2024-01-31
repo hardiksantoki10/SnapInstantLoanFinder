@@ -29,14 +29,10 @@ class CategoryFragment : BaseFragment() {
     private var companiesList: ArrayList<CategoryRes.Data> = arrayListOf()
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding =
             FragmentCategoryBinding.bind(
                 inflater.inflate(
@@ -49,17 +45,14 @@ class CategoryFragment : BaseFragment() {
         // Inflate the layout for this fragment
 
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initList()
     }
 
     private fun initList() {
-
         binding.rvCategoryList.layoutManager = LinearLayoutManager(requireContext())
         binding.rvCategoryList.adapter = CategoryListAdapter()
-
         getCategoryData()
     }
 
@@ -99,11 +92,14 @@ class CategoryFragment : BaseFragment() {
         }
 
         override fun getItemCount(): Int {
-            return companiesList?.size!!
+            return companiesList.size
         }
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             holder as ContentItemHolder
+            holder.binding.txtBankName.text = companiesList[holder.adapterPosition].title
+            holder.binding.txtStartingFrom.text = companiesList[holder.adapterPosition].details
+            Glide.with(holder.binding.ivBankImage).load(companiesList[holder.adapterPosition].icon_image).into(holder.binding.ivBankImage)
         }
 
         inner class ContentItemHolder(val binding: CategoryListItemBinding) :

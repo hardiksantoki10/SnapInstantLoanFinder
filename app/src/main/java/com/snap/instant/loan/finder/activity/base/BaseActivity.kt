@@ -22,7 +22,6 @@ import java.util.regex.Pattern
 abstract class BaseActivity : AppCompatActivity() {
 
 
-
     lateinit var activity: Activity
 
     private var mLoadingDialog: Dialog? = null
@@ -33,10 +32,7 @@ abstract class BaseActivity : AppCompatActivity() {
     val LOCATION_SERVICE = 300
 
 
-
-    private lateinit var timer : CountDownTimer
-
-
+    private lateinit var timer: CountDownTimer
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +54,7 @@ abstract class BaseActivity : AppCompatActivity() {
             mLoadingDialog!!.setCancelable(false)
             mLoadingDialog!!.show()
         } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
@@ -67,36 +64,37 @@ abstract class BaseActivity : AppCompatActivity() {
                 mLoadingDialog!!.dismiss()
             mLoadingDialog = null
         } catch (e: Exception) {
-
+            e.printStackTrace()
         }
     }
 
     open fun isValidEmail(target: CharSequence?): Boolean {
-        if(target == ""){
+        if (target == "") {
             return true
-        }else{
+        } else {
             return emailPatterns.matcher(target!!).matches()
         }
     }
+
     var emailPatterns = Pattern.compile("[a-zA-Z0-9._]+@[a-z]+\\.+[a-z]+")
 
     val EMAIL_ADDRESS = Pattern.compile(
-            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-                    "\\@" +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                    "(" +
-                    "\\." +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                    ")+"
+        "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                "(" +
+                "\\." +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                ")+"
     )
     val EMAIL_ADDRESS_PATTERN = Pattern.compile(
-            "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
-                    "\\@" +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
-                    "(" +
-                    "\\." +
-                    "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
-                    ")+"
+        "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                "(" +
+                "\\." +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                ")+"
     )
 
     open fun isNotValidEditText(editText: EditText): Boolean {
@@ -121,10 +119,11 @@ abstract class BaseActivity : AppCompatActivity() {
         return m.find() && m.group().equals(s)
     }
 
-    open fun showToast(context: Context,message: String?) {
+    open fun showToast(context: Context, message: String?) {
         try {
 
-            val layout: View = LayoutInflater.from(context).inflate(R.layout.custom_toast_layout, null)
+            val layout: View =
+                LayoutInflater.from(context).inflate(R.layout.custom_toast_layout, null)
 
             val tv = layout.findViewById<View>(R.id.tvName) as TextView
             tv.text = message
@@ -137,7 +136,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
             // Set the countdown to display the toast
             val toastCountDown: CountDownTimer
-            toastCountDown = object : CountDownTimer(toastDurationInMilliSeconds.toLong(), 1000 /*Tick duration*/) {
+            toastCountDown = object :
+                CountDownTimer(toastDurationInMilliSeconds.toLong(), 1000 /*Tick duration*/) {
                 override fun onTick(millisUntilFinished: Long) {
                     toast.show()
                 }

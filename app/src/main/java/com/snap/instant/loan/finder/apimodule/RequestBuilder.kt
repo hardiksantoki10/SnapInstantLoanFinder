@@ -4,8 +4,11 @@ package com.snap.instant.loan.finder.apimodule
 import com.orhanobut.hawk.Hawk
 import com.snap.instant.loan.finder.activity.base.UserLoginDetail
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.File
 
 
 object RequestBuilder {
@@ -22,14 +25,17 @@ object RequestBuilder {
         }
     }
 
-    private fun getCommonParametersHashMapRequestBody(): HashMap<String, RequestBody> {
+    fun getCommonParametersHashMapRequestBody(): HashMap<String, RequestBody> {
         val hashMap = HashMap<String, RequestBody>()
         hashMap[PARAMS.TOKEN] = toRequestBody(getSavedToken())
         return hashMap
     }
 
-
-    private fun toRequestBody(value: String): RequestBody {
+    fun getRequestBodyForFile(file1: File, name: String): MultipartBody.Part {
+        val requestFile: RequestBody = file1.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+        return MultipartBody.Part.createFormData(name, file1.name, requestFile)
+    }
+     fun toRequestBody(value: String): RequestBody {
         return value.toRequestBody("text/plain".toMediaTypeOrNull())
     }
 
