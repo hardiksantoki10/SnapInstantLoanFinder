@@ -21,7 +21,7 @@ open class ApiRepository @Inject constructor(private val api: Api) {
             })
     }
 
-    open suspend fun makeLogin(): Result<ResponseBody> {
+    open suspend fun getHomeData(): Result<ResponseBody> {
         return api.getHomeData()
     }
 
@@ -38,6 +38,15 @@ open class ApiRepository @Inject constructor(private val api: Api) {
             MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
                 .addFormDataPart("company_id", company_id)
+                .build()
+        )
+    }
+
+    open suspend fun companylistByCategory(company_id: String): Result<ResponseBody> {
+        return api.companylistByCategory(
+            MultipartBody.Builder()
+                .setType(MultipartBody.FORM)
+                .addFormDataPart("category_id", company_id)
                 .build()
         )
     }

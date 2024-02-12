@@ -54,9 +54,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppLightTheme"
         tools:targetApi="31">
+
         <activity
             android:name=".activity.CompanyProfileActivity"
-            android:exported="false" />
+            android:configChanges="locale|layoutDirection|uiMode|orientation|screenSize|screenLayout|keyboardHidden"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible" />
+        <activity
+            android:name=".activity.CompanyProfileNewActivity"
+            android:configChanges="locale|layoutDirection|uiMode|orientation|screenSize|screenLayout|keyboardHidden"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible" />
+
+        <activity
+            android:name=".activity.LoanProviderActivity"
+            android:configChanges="locale|layoutDirection|uiMode|orientation|screenSize|screenLayout|keyboardHidden"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible" />
         <activity
             android:name=".activity.RegisterActivity"
             android:configChanges="locale|layoutDirection|uiMode|orientation|screenSize|screenLayout|keyboardHidden"

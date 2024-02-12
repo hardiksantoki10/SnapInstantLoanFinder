@@ -27,6 +27,9 @@ interface Api {
 
     @POST("company-profile")
     suspend fun getCompanyProfile(@Body map: RequestBody): Result<ResponseBody>
+
+    @POST("companylist-by-category")
+    suspend fun companylistByCategory(@Body map: RequestBody): Result<ResponseBody>
     @POST("loan-calculater")
     suspend fun loanCalculate(@Body map: RequestBody): Result<ResponseBody>
 

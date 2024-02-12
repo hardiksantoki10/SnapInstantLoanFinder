@@ -48,7 +48,9 @@ data class CompanyProfileRes(
             @SerializedName("id")
             var id: String?,
             @SerializedName("title")
-            var title: String?
+            var title: String?,
+            @SerializedName("full_image")
+            var full_image: String?
         ) : Parcelable
     }
 }

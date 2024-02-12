@@ -1,5 +1,6 @@
 package com.snap.instant.loan.finder.activity.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,6 +19,7 @@ import com.snap.instant.loan.finder.databinding.FragmentCategoryBinding
 import com.snap.instant.loan.finder.databinding.HomeListProviderItemBinding
 import kotlinx.coroutines.Dispatchers
 import androidx.lifecycle.lifecycleScope
+import com.snap.instant.loan.finder.activity.LoanProviderActivity
 import com.snap.instant.loan.finder.apimodule.pojoModel.CategoryRes
 import com.snap.instant.loan.finder.databinding.CategoryListItemBinding
 import kotlinx.coroutines.launch
@@ -100,6 +102,12 @@ class CategoryFragment : BaseFragment() {
             holder.binding.txtBankName.text = companiesList[holder.adapterPosition].title
             holder.binding.txtStartingFrom.text = companiesList[holder.adapterPosition].details
             Glide.with(holder.binding.ivBankImage).load(companiesList[holder.adapterPosition].icon_image).into(holder.binding.ivBankImage)
+
+            holder.itemView.setOnClickListener {
+                activity?.startActivity(Intent(activity, LoanProviderActivity::class.java).apply {
+                    putExtra("companyID", companiesList[holder.adapterPosition].id)
+                })
+            }
         }
 
         inner class ContentItemHolder(val binding: CategoryListItemBinding) :

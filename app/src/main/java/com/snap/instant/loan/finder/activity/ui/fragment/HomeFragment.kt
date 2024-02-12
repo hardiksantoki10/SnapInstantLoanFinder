@@ -25,10 +25,12 @@ import com.snap.instant.loan.finder.activity.MainActivity
 import com.snap.instant.loan.finder.activity.base.BaseFragment
 import com.snap.instant.loan.finder.activity.base.UserLoginDetail
 import com.snap.instant.loan.finder.adapter.SliderAdapter
+import com.snap.instant.loan.finder.apimodule.pojoModel.CategoryRes
 import com.snap.instant.loan.finder.apimodule.pojoModel.HomeRes
 import com.snap.instant.loan.finder.apimodule.pojoModel.ProfileRes
 import com.snap.instant.loan.finder.databinding.FragmentHomeBinding
 import com.snap.instant.loan.finder.databinding.HomeListProviderItemBinding
+import com.snap.instant.loan.finder.helper.DialogUtils.showSaveItemOptionDialog
 import com.snap.instant.loan.finder.helper.EventModel
 import com.snap.instant.loan.finder.helper.EventType
 import kotlinx.coroutines.Dispatchers
@@ -60,6 +62,28 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initList()
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            (activity as MainActivity).apiRepository.getCategory().onSuccess {
+                lifecycleScope.launch(Dispatchers.Main) {
+                    hideProgress()
+                    val res = it.string()
+                    Log.d("getHomeData", "onSuccess responce $res")
+                    val homeRes = Gson().fromJson(res, CategoryRes::class.java)
+                    if (homeRes.success) {
+                        lifecycleScope.launch(Dispatchers.Main) {
+                            requireActivity().showSaveItemOptionDialog(homeRes.data)
+                        }
+                    }
+                }
+            }.onFailure {
+                lifecycleScope.launch(Dispatchers.Main) {
+                    hideProgress()
+                    val res = it.message
+                    Log.d("getHomeData", "onFailure responce ${res}")
+                }
+            }
+        }
     }
 
     private fun initList() {
@@ -82,6 +106,10 @@ class HomeFragment : BaseFragment() {
                 binding.viewPagerHorizontal
             )
         )
+
+
+        //loadn cateapi
+        // categetByID
 
         binding.viewPagerHorizontal.clipToPadding = false
         binding.viewPagerHorizontal.clipChildren = false
@@ -110,7 +138,7 @@ class HomeFragment : BaseFragment() {
     private fun getHomeData() {
         showProgress()
         lifecycleScope.launch(Dispatchers.IO) {
-            (activity as MainActivity).apiRepository.makeLogin().onSuccess {
+            (activity as MainActivity).apiRepository.getHomeData().onSuccess {
                 lifecycleScope.launch(Dispatchers.Main) {
                     hideProgress()
                     val res = it.string()

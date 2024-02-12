@@ -176,7 +176,8 @@
                     app:app_font="@string/dm_sans_36pt_500" />
 
                 <com.snap.instant.loan.finder.font_view.FontTextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:hint=" Year"
@@ -186,6 +187,11 @@
                     android:textColorHint="@color/colorBlack"
                     android:textSize="@dimen/_12sdp"
                     app:app_font="@string/dm_sans_36pt_500" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:srcCompat="@drawable/ic_line_arrow" />
             </LinearLayout>
 
         </androidx.appcompat.widget.LinearLayoutCompat>

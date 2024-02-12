@@ -15,6 +15,7 @@ import com.snap.instant.loan.finder.activity.base.BaseActivity
 import com.snap.instant.loan.finder.apimodule.ApiRepository
 import com.snap.instant.loan.finder.apimodule.pojoModel.CompanyProfileRes
 import com.snap.instant.loan.finder.apimodule.pojoModel.HomeRes
+import com.snap.instant.loan.finder.apimodule.pojoModel.LoanProviderRes
 import com.snap.instant.loan.finder.databinding.ActivityCompanyProfileBinding
 import com.snap.instant.loan.finder.databinding.BenifitListItemBinding
 import com.snap.instant.loan.finder.databinding.LoanProviderListItemBinding
@@ -25,10 +26,10 @@ import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class CompanyProfileActivity : BaseActivity() {
+class CompanyProfileNewActivity : BaseActivity() {
     private var resourcesList: List<CompanyProfileRes.Data.Resource?>? = arrayListOf()
     private var benifitList: List<String?> = arrayListOf()
-    var companyID: HomeRes.Company? = null
+    var companyID: LoanProviderRes.Data? = null
     lateinit var binding: ActivityCompanyProfileBinding
 
     @Inject

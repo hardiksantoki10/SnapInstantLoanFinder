@@ -26,7 +26,7 @@ class CalcFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentCalculatorBinding.bind(
             inflater.inflate(
@@ -43,11 +43,12 @@ class CalcFragment : BaseFragment() {
         initList()
     }
 
-    val values = arrayOf("1", "2", "3")
+    val values = arrayOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")
     private fun showSingleValueChooserDialog(items: Array<String>) {
         SingleValueChooserDialogs.show(
             requireContext(),
             items,
+            "Select tenure",
             object : SingleValueChooserDialogs.OnItemSelectedListener {
                 override fun onItemSelected(selectedItem: String?) {
                     lifecycleScope.launch {
@@ -60,11 +61,9 @@ class CalcFragment : BaseFragment() {
     private fun initList() {
         binding.llTime.setOnClickListener {
             showSingleValueChooserDialog(values)
-
         }
 
         binding.btnCalculate.setOnClickListener {
-
             if (binding.edAmount.text.isNullOrEmpty()) {
                 activity?.let { it1 -> requireActivity().showToast(it1, "Please add loan amount") }
             } else if (binding.edtTime.text.isNullOrEmpty()) {
@@ -153,10 +152,11 @@ class CalcFragment : BaseFragment() {
         fun show(
             context: Context?,
             items: Array<String>,
+            title: String,
             listener: OnItemSelectedListener?
         ) {
             val builder = AlertDialog.Builder(context)
-            builder.setTitle("Choose an item")
+            builder.setTitle(title)
                 .setItems(items) { dialog, which ->
                     val selectedItem = items[which]
                     listener?.onItemSelected(selectedItem)

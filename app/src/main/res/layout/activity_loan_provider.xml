@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.CompanyProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/img_back" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/dm_sans_36pt_900_black"
+            android:text="Available loan providers"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLoanProviderList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:itemCount="2"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/home_list_provider_item" />
+
+
+</LinearLayout>
