@@ -42,6 +42,9 @@ class LoanProviderActivity : BaseActivity() {
             "companyID $companyID onCreate: ${Hawk.get(UserLoginDetail.REMEMBER_TOKEN, "")}"
         )
         getCompanyProfile()
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun getCompanyProfile() {

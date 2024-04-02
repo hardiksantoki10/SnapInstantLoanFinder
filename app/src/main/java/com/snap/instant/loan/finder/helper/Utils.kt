@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.net.Uri
 import android.util.DisplayMetrics
+import android.util.Log
 import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +22,7 @@ import com.google.gson.GsonBuilder
 import com.snap.instant.loan.finder.BuildConfig
 import com.snap.instant.loan.finder.R
 import com.snap.instant.loan.finder.databinding.SnackbarBinding
+import kotlin.math.pow
 
 object Utils {
     const val DEVELOPER_ACC = "https://play.google.com/store/apps/developer?id=justapps"
@@ -64,6 +66,7 @@ object Utils {
     fun getAppPackageName(): String {
         return BuildConfig.APPLICATION_ID
     }
+
     fun convertPxToDp(context: Context, value: Float): Int {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP, value, context.resources.displayMetrics
@@ -182,6 +185,7 @@ object Utils {
             )
         }
     }
+
     fun rateAppWithPackage(context: Context, packageName: String) {
         val uri = Uri.parse("market://details?id=$packageName")
         val goToMarket = Intent(Intent.ACTION_VIEW, uri)
@@ -249,5 +253,22 @@ object Utils {
         val list =
             packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
         return list.isNotEmpty()
+    }
+
+    fun calculateLoan(
+        loanAmount: Double,
+        annualInterestRate: Double,
+        loanTermInMonths: Double,
+        calculateLoanCallback: (Double, Double, Double) -> Unit
+    ) {
+        val monthlyInterestRate = annualInterestRate / 1200
+        val denominator = (1 - (1 + monthlyInterestRate).pow(-loanTermInMonths))
+
+        val monthlyPayment = loanAmount * (monthlyInterestRate / denominator)
+        val totalPayments = monthlyPayment * loanTermInMonths
+        val totalInterest = totalPayments - loanAmount
+
+        calculateLoanCallback.invoke(monthlyPayment, totalPayments, totalInterest)
+
     }
 }

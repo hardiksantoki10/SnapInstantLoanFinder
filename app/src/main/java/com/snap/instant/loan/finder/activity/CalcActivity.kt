@@ -1,49 +1,47 @@
-package com.snap.instant.loan.finder.activity.ui.fragment
+package com.snap.instant.loan.finder.activity
 
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
-import com.snap.instant.loan.finder.R
-import com.snap.instant.loan.finder.activity.MainActivity
-import com.snap.instant.loan.finder.activity.base.BaseFragment
+import com.snap.instant.loan.finder.activity.base.BaseActivity
 import com.snap.instant.loan.finder.apimodule.pojoModel.CalcRes
-import com.snap.instant.loan.finder.databinding.FragmentCalculatorBinding
+import com.snap.instant.loan.finder.databinding.ActivityCalculatorBinding
 import com.snap.instant.loan.finder.helper.Utils
-import com.snap.instant.loan.finder.helper.Utils.showToast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class CalcFragment : BaseFragment() {
+class CalcActivity : BaseActivity() {
 
-    lateinit var binding: FragmentCalculatorBinding
+    lateinit var binding: ActivityCalculatorBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        binding = FragmentCalculatorBinding.bind(
-            inflater.inflate(
-                R.layout.fragment_calculator, container, false
-            )
-        )
-        return binding.root
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityCalculatorBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val interestRate = intent?.extras?.getString("interestRate", "").orEmpty()
+        if (interestRate.isNotEmpty()) {
+            interestRate.toIntOrNull()?.let { rate ->
+                binding.etRate.setText(rate.toString())
+            }
+        }
+
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
+
         initList()
     }
 
     val values = Array(248) { (it + 1).toString() }
     private fun showSingleValueChooserDialog(items: Array<String>) {
-        SingleValueChooserDialogs.show(requireContext(),
+        SingleValueChooserDialogs.show(
+            this@CalcActivity,
             items,
             "Select term",
             object : SingleValueChooserDialogs.OnItemSelectedListener {
@@ -62,13 +60,12 @@ class CalcFragment : BaseFragment() {
 
         binding.btnCalculate.setOnClickListener {
             if (binding.edAmount.text.isNullOrEmpty()) {
-                activity?.let { it1 -> requireActivity().showToast(it1, "Please add loan amount") }
+                activity.let { it1 -> showToast(it1, "Please add loan amount") }
             } else if (binding.edtTime.text.isNullOrEmpty()) {
-                activity?.let { it1 -> requireActivity().showToast(it1, "Please add loan term") }
+                activity.let { it1 -> showToast(it1, "Please add loan term") }
             } else if (binding.etRate.text.isNullOrEmpty()) {
-                activity?.let { it1 -> requireActivity().showToast(it1, "Please add loan rate") }
+                activity.let { it1 -> showToast(it1, "Please add loan rate") }
             } else {
-
                 Utils.calculateLoan(
                     binding.edAmount.text.toString().toDouble(),
                     binding.etRate.text.toString().toDouble(),
@@ -76,45 +73,33 @@ class CalcFragment : BaseFragment() {
                 ) { monthlyPayment, totalPayments, totalInterest ->
                     setData(monthlyPayment,totalPayments,totalInterest)
                 }
+                /*showProgress()
+                lifecycleScope.launch(Dispatchers.IO) {
+                    (activity as MainActivity).apiRepository.loanCalculate(
+                        binding.edAmount.text.toString(),
+                        binding.etRate.text.toString(),
+                        binding.edtTime.text.toString()
+                    ).onSuccess {
+                        lifecycleScope.launch(Dispatchers.Main) {
+                            hideProgress()
+                            val res = it.string()
+                            Log.d("getProfileData", "onSuccess responce $res")
 
+                            val homeRes = Gson().fromJson(res, CalcRes::class.java)
 
-                /* showProgress()
-                 lifecycleScope.launch(Dispatchers.IO) {
-                     (activity as MainActivity).apiRepository.loanCalculate(
-                         binding.edAmount.text.toString(),
-                         binding.etRate.text.toString(),
-                         binding.edtTime.text.toString()
-                     ).onSuccess {
-                         lifecycleScope.launch(Dispatchers.Main) {
-                             hideProgress()
-                             val res = it.string()
-                             Log.d("getProfileData", "onSuccess responce $res")
-
-                             val homeRes = Gson().fromJson(res, CalcRes::class.java)
-
-                             if (homeRes.success == true) {
-                                 setData(homeRes)
-                             }
-                         }
-                     }.onFailure {
-                         lifecycleScope.launch(Dispatchers.Main) {
-                             hideProgress()
-                             Log.d("getProfileData", "onFailure responce ${it.message}")
-                         }
-                     }
-                 }*/
+                            if (homeRes.success == true) {
+                                setData(homeRes)
+                            }
+                        }
+                    }.onFailure {
+                        lifecycleScope.launch(Dispatchers.Main) {
+                            hideProgress()
+                            Log.d("getProfileData", "onFailure responce ${it.message}")
+                        }
+                    }
+                }*/
             }
-
         }
-    }
-
-    private fun setData(homeRes: CalcRes) {
-        lifecycleScope.launch(Dispatchers.Main) {
-            binding.txtMonthlyAmount.text = "$ " + homeRes.data?.monthlyPayment.toString()
-            binding.txtTotalInterest.text = "$ " + homeRes.data?.totalInterest.toString()
-            binding.txtTotalAmountPayable.text = "$ " + homeRes.data?.totalPayable.toString()
-        }
-
     }
     private fun setData(monthlyPayment: Double, totalPayments: Double, totalInterest: Double) {
         lifecycleScope.launch(Dispatchers.Main) {
@@ -123,9 +108,19 @@ class CalcFragment : BaseFragment() {
             binding.txtTotalAmountPayable.text = "$ " + String.format("%.2f", totalPayments)
         }
     }
+    private fun setData(homeRes: CalcRes) {
+        lifecycleScope.launch(Dispatchers.Main) {
+            binding.txtMonthlyAmount.text = "$ " + homeRes.data?.monthlyPayment.toString()
+            binding.txtTotalInterest.text = "$ " + homeRes.data?.totalInterest.toString()
+            binding.txtTotalAmountPayable.text = "$ " + homeRes.data?.totalPayable.toString()
+        }
+    }
 
     class SingleValueChooserDialog(
-        context: Context, title: String, values: Array<String>, listener: OnValueSelectedListener
+        context: Context,
+        title: String,
+        values: Array<String>,
+        listener: OnValueSelectedListener
     ) {
 
         private var selectedValue: String? = null
@@ -166,11 +161,12 @@ class CalcFragment : BaseFragment() {
             listener: OnItemSelectedListener?
         ) {
             val builder = AlertDialog.Builder(context)
-            builder.setTitle(title).setItems(items) { dialog, which ->
-                val selectedItem = items[which]
-                listener?.onItemSelected(selectedItem)
-                dialog.dismiss()
-            }
+            builder.setTitle(title)
+                .setItems(items) { dialog, which ->
+                    val selectedItem = items[which]
+                    listener?.onItemSelected(selectedItem)
+                    dialog.dismiss()
+                }
             builder.create().show()
         }
 

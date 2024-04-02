@@ -31,7 +31,9 @@ class RegisterActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
 
-
+        binding.ivBack.setOnClickListener {
+            finish()
+        }
         binding.btnRegister.setOnClickListener {
             if (isNotValidEditText(binding.edtFirstName)) {
                 showToast(activity, "Please enter firstname")

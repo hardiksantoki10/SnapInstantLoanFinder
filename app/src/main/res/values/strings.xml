@@ -21,7 +21,7 @@
     <string name="your_email_address">Your email address</string>
     <string name="last_name">Last name</string>
     <string name="mobile_number">Mobile number</string>
-    <string name="numberr">+1 - 000 0000</string>
+    <string name="numberr">+1 – 000 0000</string>
     <string name="date_of_birth">Date of birth</string>
     <string name="new_password">New password</string>
     <string name="confirm_password">Confirm Password</string>
@@ -38,7 +38,7 @@
     <string name="logout">Logout</string>
     <string name="remove_account">Remove account</string>
     <string name="calculate_amount">Calculate Amount</string>
-    <string name="tenure">Tenure</string>
+    <string name="tenure">Term</string>
     <string name="interest_rate">Interest rate (%)</string>
     <string name="loan_amount">Loan Amount</string>
     <string name="total_interest_due">Total Interest Due</string>

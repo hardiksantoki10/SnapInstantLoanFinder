@@ -58,6 +58,12 @@ class CompanyProfileNewActivity : BaseActivity() {
         binding.ivBack.setOnClickListener {
             finish()
         }
+
+        binding.ivCalc.setOnClickListener {
+            startActivity(Intent(this@CompanyProfileNewActivity, CalcActivity::class.java).apply {
+                putExtra("interestRate", "" + resData?.interestRatesAverage.orEmpty())
+            })
+        }
         binding.ivProviderArrow.setOnClickListener {
             binding.rvLoanProviderList.isVisible = !binding.rvLoanProviderList.isVisible
             setExpandColapse()
@@ -107,10 +113,12 @@ class CompanyProfileNewActivity : BaseActivity() {
         }
     }
 
+    var resData: CompanyProfileRes.Data? = null
     private fun setData(data: CompanyProfileRes.Data?) {
+        resData = data
         binding.llVisitNow.setOnClickListener {
             var url = data?.redirectLink.orEmpty()
-            if (!url.startsWith("https://") && !url.startsWith("http://")){
+            if (!url.startsWith("https://") && !url.startsWith("http://")) {
                 url = "http://$url";
             }
             val i = Intent(Intent.ACTION_VIEW)
@@ -166,7 +174,9 @@ class CompanyProfileNewActivity : BaseActivity() {
             holder.binding.txtDescription.text =
                 resourcesList?.get(holder.adapterPosition)?.details.orEmpty()
 
-            Glide.with(holder.binding.ivImage).load(resourcesList?.get(holder.adapterPosition)?.full_image.orEmpty()).into(holder.binding.ivImage)
+            Glide.with(holder.binding.ivImage)
+                .load(resourcesList?.get(holder.adapterPosition)?.full_image.orEmpty())
+                .into(holder.binding.ivImage)
         }
 
         inner class ContentItemHolder(val binding: LoanProviderListItemBinding) :

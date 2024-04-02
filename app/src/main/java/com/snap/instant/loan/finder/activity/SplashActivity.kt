@@ -4,10 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.orhanobut.hawk.Hawk
 import com.snap.instant.loan.finder.R
 import com.snap.instant.loan.finder.activity.base.UserLoginDetail
+import com.snap.instant.loan.finder.apimodule.pojoModel.LoanProviderRes
+import kotlin.math.pow
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,5 +27,6 @@ class SplashActivity : AppCompatActivity() {
                 finishAffinity()
             }
         }, 2000)
+
     }
 }

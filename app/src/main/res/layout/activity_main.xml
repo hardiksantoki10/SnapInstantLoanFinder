@@ -34,7 +34,7 @@
                 android:id="@+id/ivHome"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                app:srcCompat="@drawable/ic_home_icon_active" />
+                app:srcCompat="@drawable/ic_home_active" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/txtHome"

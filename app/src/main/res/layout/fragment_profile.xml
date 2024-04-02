@@ -89,12 +89,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/_15sdp">
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_8sdp">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:id="@+id/llProfile"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="@dimen/_8sdp">
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/ivEditProfile"
@@ -119,36 +121,12 @@
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_15sdp">
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="@dimen/_22sdp"
-                            android:layout_height="@dimen/_22sdp"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/ic_notification"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="16dp"
-                            android:fontFamily="@font/dm_sans_36_500_medium"
-                            android:text="@string/notification_settings"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
 
                     <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/llShare"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_15sdp">
+                        android:paddingVertical="@dimen/_8sdp">
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="@dimen/_22sdp"
@@ -175,7 +153,7 @@
                         android:id="@+id/llRateus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_15sdp">
+                        android:paddingVertical="@dimen/_8sdp">
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="@dimen/_22sdp"
@@ -214,37 +192,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/_15sdp">
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_8sdp">
+
 
                     <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="@dimen/_22sdp"
-                            android:layout_height="@dimen/_22sdp"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/ic_help"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="16dp"
-                            android:fontFamily="@font/dm_sans_36_500_medium"
-                            android:text="@string/help_center"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/llPrivacy"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_15sdp">
+                        android:paddingVertical="@dimen/_8sdp">
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="@dimen/_22sdp"
@@ -268,9 +224,10 @@
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
                     <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/llTerm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_15sdp">
+                        android:paddingVertical="@dimen/_8sdp">
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="@dimen/_22sdp"
@@ -293,31 +250,7 @@
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_15sdp">
 
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="@dimen/_22sdp"
-                            android:layout_height="@dimen/_22sdp"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/ic_about"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:shapeAppearanceOverlay="@style/roundedCornersImage_50" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="16dp"
-                            android:fontFamily="@font/dm_sans_36_500_medium"
-                            android:text="@string/about_app"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="14sp" />
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </com.google.android.material.card.MaterialCardView>
 
@@ -335,11 +268,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/_15sdp">
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_8sdp">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/llLogout"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="@dimen/_8sdp">
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="@dimen/_22sdp"
@@ -363,9 +299,10 @@
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
                     <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/llRemove"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_15sdp">
+                        android:paddingVertical="@dimen/_8sdp">
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:layout_width="@dimen/_22sdp"

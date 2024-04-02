@@ -32,6 +32,8 @@ interface Api {
     suspend fun companylistByCategory(@Body map: RequestBody): Result<ResponseBody>
     @POST("loan-calculater")
     suspend fun loanCalculate(@Body map: RequestBody): Result<ResponseBody>
+    @POST("delete-profile")
+    suspend fun deleteProfile(): Result<ResponseBody>
 
 
     @POST("register")

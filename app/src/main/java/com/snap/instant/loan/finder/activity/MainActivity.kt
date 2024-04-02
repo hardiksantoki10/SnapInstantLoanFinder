@@ -88,7 +88,7 @@ class MainActivity : BaseActivity() {
         binding.ivHome.setImageDrawable(
             ContextCompat.getDrawable(
                 this,
-                R.drawable.ic_home_icon_inactive
+                R.drawable.ic_home_active
             )
         )
         binding.ivCalc.setImageDrawable(
@@ -97,18 +97,27 @@ class MainActivity : BaseActivity() {
                 R.drawable.ic_calculator_inactive
             )
         )
+
         binding.ivCategory.setImageDrawable(
             ContextCompat.getDrawable(
                 this,
                 R.drawable.ic_category_inactive
             )
         )
+
         binding.ivProfile.setImageDrawable(
             ContextCompat.getDrawable(
                 this,
                 R.drawable.ic_profile_inactive
             )
         )
+
+        binding.ivHome.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.color_767C98), android.graphics.PorterDuff.Mode.SRC_IN);
+        binding.ivCalc.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.color_767C98), android.graphics.PorterDuff.Mode.SRC_IN);
+        binding.ivCategory.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.color_767C98), android.graphics.PorterDuff.Mode.SRC_IN);
+        binding.ivProfile.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.color_767C98), android.graphics.PorterDuff.Mode.SRC_IN);
+
+
 
         binding.txtProfile.setTextColor(getColor(R.color.color_767C98))
         binding.txtHome.setTextColor(getColor(R.color.color_767C98))
@@ -117,39 +126,38 @@ class MainActivity : BaseActivity() {
 
         if (it == TAB.HOME) {
             binding.txtHome.setTextColor(getColor(R.color.white))
-            binding.ivHome.setImageDrawable(
-                ContextCompat.getDrawable(
-                    this,
-                    R.drawable.ic_home_icon_active
-                )
-            )
+            binding.ivHome.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.white), android.graphics.PorterDuff.Mode.SRC_IN);
+
         }
         if (it == TAB.CALC) {
             binding.txtCalc.setTextColor(getColor(R.color.white))
-            binding.ivCalc.setImageDrawable(
+            /*binding.ivCalc.setImageDrawable(
                 ContextCompat.getDrawable(
                     this,
                     R.drawable.ic_calculator_active
                 )
-            )
+            )*/
+            binding.ivCalc.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.white), android.graphics.PorterDuff.Mode.SRC_IN);
         }
         if (it == TAB.CATEGORY) {
             binding.txtCategory.setTextColor(getColor(R.color.white))
-            binding.ivCategory.setImageDrawable(
+            /*binding.ivCategory.setImageDrawable(
                 ContextCompat.getDrawable(
                     this,
                     R.drawable.ic_category_active
                 )
-            )
+            )*/
+            binding.ivCategory.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.white), android.graphics.PorterDuff.Mode.SRC_IN);
         }
         if (it == TAB.PROFILE) {
             binding.txtProfile.setTextColor(getColor(R.color.white))
-            binding.ivProfile.setImageDrawable(
+           /* binding.ivProfile.setImageDrawable(
                 ContextCompat.getDrawable(
                     this,
                     R.drawable.ic_profile_active
                 )
-            )
+            )*/
+            binding.ivProfile.setColorFilter(ContextCompat.getColor(this@MainActivity, R.color.white), android.graphics.PorterDuff.Mode.SRC_IN);
         }
     }
 

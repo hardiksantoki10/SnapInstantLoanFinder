@@ -229,10 +229,8 @@ class HomeFragment : BaseFragment() {
                 .into(holder.binding.ivBankImage)
             holder.binding.txtBankName.text = imageFile?.name.orEmpty()
             holder.binding.txtStartingFrom.text = imageFile?.subtitle.orEmpty()
-
             holder.binding.ivArrow.setOnClickListener {
                 onClickCallback.invoke(imageFile)
-
             }
         }
 

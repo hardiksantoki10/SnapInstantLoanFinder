@@ -33,6 +33,10 @@ open class ApiRepository @Inject constructor(private val api: Api) {
         return api.getProfile()
     }
 
+    open suspend fun deleteProfile(): Result<ResponseBody> {
+        return api.deleteProfile()
+    }
+
     open suspend fun getCompanyProfile(company_id: String): Result<ResponseBody> {
         return api.getCompanyProfile(
             MultipartBody.Builder()

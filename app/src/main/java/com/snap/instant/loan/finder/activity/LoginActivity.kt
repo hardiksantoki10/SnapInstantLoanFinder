@@ -65,7 +65,7 @@ class LoginActivity : BaseActivity() {
                             if (loginRes.success == true) {
                                 saveData(loginRes)
                             } else {
-
+                                showToast(activity, "${loginRes.message}")
                             }
                         }
                     }.onFailure {
